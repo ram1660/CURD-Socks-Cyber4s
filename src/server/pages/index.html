@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/styles.css">
+  <script src="../app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <title>Super secret russian socks attack</title>
+</head>
+
+<body>
+  <header>
+    <h1 class="website-title">The super secret socks project</h1>
+  </header>
+  <div class="management-ui">
+    <button class="management-ui-btn create">Create new data</button>
+    <button class="management-ui-btn view">View data</button>
+  </div>
+  <div class="ussr-images">
+    <img src="../images/socks.png" alt="Socks" id="socks-image">
+    <img src="../images/ussr_flag.jpg" alt="USSR Flag" id="flag-image">
+  </div>
+
+  <div class="option-container" id="operation-container">
+    <a href="#" class="exit-button" id="options-exit-button"></a>
+    <h4 id="operation-title">What kind of data do you want to {operation}?</h4>
+    <label for="data-option">Choose from the list</label>
+    <div>
+      <select name="operations-drop-down" id="operations-options">
+        <option value="default" selected>Choose here</option>
+        <option value="socks">Socks</option>
+        <option value="officers">Officers</option>
+        <option value="location">Location</option>
+        <option value="location-history">Location history</option>
+      </select>
+      <button class="apply-create-button" id="apply-operation">Apply</button>
+    </div>
+    <div id="invalid-option">
+      Invalid option.<br>
+      Please choose a valid option.
+    </div>
+  </div>
+
+  <div class="option-container" id="create-ui-outer">
+    <a href="#" class="exit-button" id="create-ui-exit-button"></a>
+    <div id="create-data">
+      <h4 id="data-name">Create new {dataName}</h4>
+      <div class="create-ui" id="create-socks">
+        <input class="create-socks-input" required type="text" id="create-socks-model" placeholder="Model">
+        <input class="create-socks-input" required type="text" id="create-socks-quantity" placeholder="Quantity">
+        <input class="create-socks-input" required type="text" id="create-socks-size" placeholder="Size">
+        <input class="create-socks-input" required type="date" id="create-socks-manufacturing-year"
+          placeholder="Manufacturing Year">
+        <label for="location ID">Choose location ID</label>
+        <select class="create-socks-input" name="locationId" id="create-location-id">
+        </select>
+        <label for="officer ID">Choose officer ID</label>
+        <select class="create-socks-input" name="officerId" id="create-officer-id">
+        </select>
+      </div>
+      <div class="create-ui" id="create-officer">
+        <input class="create-officer-input" required type="text" id="create-officer-officer-name" placeholder="Officer name">
+        <input class="create-officer-input" required type="number" id="create-officer-army-id-number"
+          placeholder="Army ID number">
+        <input class="create-officer-input" required type="email" id="create-officer-email" placeholder="Email">
+        <input class="create-officer-input" required type="number" id="create-officer-phone"
+          placeholder="Officer phone number">
+      </div>
+      <div class="create-ui" id="create-location">
+        <input class="create-location-input" required type="text" id="create-location-lat" placeholder="lat">
+        <input class="create-location-input" required type="text" id="create-location-lon" placeholder="lon">
+        <input class="create-location-input" required type="text" id="create-location-base-name" placeholder="Base name">
+        <input class="create-location-input" required type="date" id="create-location-nearest-city" placeholder="Nearest city">
+      </div>
+      <div class="create-ui" id="create-location-history">
+        <label for="arrival">Arrival date</label>
+        <input class="create-location-history-input" class="create-location-history-input" required type="date"
+          id="create-location-history-arrival-date" placeholder="Arrival date">
+        <label for="departure">Departure date</label>
+        <input class="create-location-history-input" required type="date" id="create-location-history-departure-date"
+          placeholder="Departure date">
+        <label for="officer ID">Choose officer ID</label>
+        <select class="create-location-history-input" name="officersId" id="create-officers-id">
+        </select>
+        <label for="socks ID">Choose socks ID</label>
+        <select class="create-location-history-input" name="socksId" id="create-socks-id">
+        </select>
+      </div>
+      <button id="create-data-btn">Create data</button>
+      <div id="answer-server"></div>
+    </div>
+    <div id="edit-data">
+      <h4 id="edit-data-name">Editing {field}</h4>
+      <div class="edit-ui" id="edit-socks">
+        <input class="edit-socks-input" required type="text" id="edit-socks-model" placeholder="Model">
+        <input class="edit-socks-input" required type="text" id="edit-socks-quantity" placeholder="Quantity">
+        <input class="edit-socks-input" required type="text" id="edit-socks-size" placeholder="Size">
+        <input class="edit-socks-input" required type="date" id="edit-socks-manufacturing-year"
+          placeholder="Manufacturing Year">
+        <label for="location ID">Choose location ID</label>
+        <select class="edit-socks-input" name="locationId" id="edit-location-id">
+        </select>
+        <label for="officer ID">Choose officer ID</label>
+        <select class="edit-socks-input" name="officerId" id="edit-officer-id">
+        </select>
+      </div>
+      <div class="edit-ui" id="edit-officer">
+        <input class="edit-officer-input" required type="email" id="edit-officer-email" placeholder="Email">
+        <input class="edit-officer-input" required type="text" id="edit-officer-officer-name" placeholder="Officer name">
+        <input class="edit-officer-input" required type="number" id="edit-officer-army-id-number"
+          placeholder="Army ID number">
+        <input class="edit-officer-input" required type="number" id="edit-officer-phone"
+          placeholder="Officer phone number">
+      </div>
+      <div class="edit-ui" id="edit-location">
+        <input class="edit-location-input" required type="text" id="edit-location-lat" placeholder="lat">
+        <input class="edit-location-input" required type="text" id="edit-location-lon" placeholder="lon">
+        <input class="edit-location-input" required type="text" id="edit-location-base-name" placeholder="Base name">
+        <input class="edit-location-input" required type="date" id="edit-location-nearest-city" placeholder="Nearest city">
+      </div>
+      <div class="edit-ui" id="edit-location-history">
+        <label for="arrival">Arrival date</label>
+        <input class="edit-location-history-input" class="edit-location-history-input" required type="date"
+          id="edit-location-history-arrival-date" placeholder="Arrival date">
+        <label for="departure">Departure date</label>
+        <input class="edit-location-history-input" required type="date" id="edit-location-history-departure-date"
+          placeholder="Departure date">
+        <label for="officer ID">Choose officer ID</label>
+        <select class="edit-location-history-input" name="officersId" id="edit-officers-id">
+        </select>
+        <label for="socks ID">Choose socks ID</label>
+        <select class="edit-location-history-input" name="socksId" id="edit-socks-id">
+        </select>
+      </div>
+      <button id="edit-data-btn">Apply</button>
+    </div>
+  </div>
+  <div id="data-container">
+    <table id="data-viewer">
+      <tr id="data-headers"></tr>
+    </table>
+  </div>
+</body>
+
+</html>

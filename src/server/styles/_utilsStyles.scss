@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@mixin table-buttons ($button-bg){
+  margin-left: 10px;
+  margin-right: 10px;
+  border: none;
+  background-color: $button-bg;
+  color: white;
+
+}
+
+.website-title {
+  background: rgb(130, 3, 3);
+  background: radial-gradient(circle, rgba(130, 3, 3, 1) 0%, rgba(121, 9, 9, 1) 15%, rgba(255, 0, 0, 1) 100%);
+  color: white;
+  text-align: center;
+  width: 100%;
+  margin: 0, 0, 0, 0;
+}
+
+.ui-title {
+  text-align: center;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #ff0000;
+}
+
+.success-message {
+  color: green;
+  font-weight: bolder;
+  font-size: large;
+}
+
+.failed-message {
+  color: white;
+  background-color: #a82e2e;
+  font-weight: bolder;
+  font-size: large;
+}
+
+.delete {
+  @include table-buttons(#ed5e68);
+}
+
+.edit {
+  @include table-buttons(#3071a9);
+
+}

@@ -1,0 +1,149 @@
+@use 'choosingUI';
+@use 'utilsStyles';
+$ui-btn-select-color: #121212;
+
+.ussr-images {
+  display: flex;
+  margin-top: 30px;
+
+  img {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 50%;
+  }
+
+  #flag-image {
+    right: 0;
+    bottom: 0;
+  }
+
+  #socks-image {
+    left: 0;
+    bottom: 0;
+  }
+}
+
+.management-ui {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  .management-ui-btn {
+    font-size: 1.2rem;
+
+    align-items: center;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: transparent 0 0 0 3px, rgba(18, 18, 18, .1) 0 6px 20px;
+    box-sizing: border-box;
+    color: $ui-btn-select-color;
+    cursor: pointer;
+    display: inline-flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    line-height: 1;
+    margin: 0;
+    outline: none;
+    padding: 1rem 1.2rem;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s, -webkit-box-shadow .2s;
+    white-space: nowrap;
+    border: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 150px;
+    height: 50px;
+    font-weight: 700;
+
+    &:hover {
+      box-shadow: $ui-btn-select-color 0 0 0 5px, transparent 0 0 0 0;
+
+    }
+  }
+}
+
+#operation-container {
+  display: none;
+}
+
+#create-ui-outer {
+  display: none;
+}
+
+#create-location-history {
+  display: none;
+}
+
+#create-location {
+  display: none;
+}
+
+#create-officer {
+  display: none;
+}
+
+#create-socks {
+  display: none;
+}
+
+#answer-server {
+  padding: 25px;
+  width: fit-content;
+  height: fit-content;
+}
+
+#edit-ui-outer {
+  display: none;
+}
+
+#edit-location-history {
+  display: none;
+}
+
+#edit-location {
+  display: none;
+}
+
+#edit-officer {
+  display: none;
+}
+
+#edit-socks {
+  display: none;
+}
+
+#data-container {
+  display: flex;
+  margin-top: 50px;
+  align-items: center;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  td,
+  th {
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    border: #121212 2px solid;
+  }
+  td {
+    background-color: white;
+  }
+  
+  th {
+    font-weight: bolder;
+  }
+  
+  tr:hover {
+    background-color: coral;
+  }
+}
+

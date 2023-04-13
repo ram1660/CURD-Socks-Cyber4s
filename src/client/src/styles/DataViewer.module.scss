@@ -1,0 +1,61 @@
+@mixin table-buttons ($button-bg) {
+    margin-left: 10px;
+    margin-right: 10px;
+    border: none;
+    background-color: $button-bg;
+    color: white;
+}
+
+.data-table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 50px;
+    td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    tr {
+        background-color: rgb(87, 6, 6);
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+        color: black
+    }
+
+
+    tr:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+    }
+}
+
+.message-from-server {
+    margin-top: 10px;
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: #ed5e68;
+    border-color: black;
+    border-width: 2px;
+}
+
+.delete {
+    @include table-buttons(#ed5e68);
+}
+
+.edit {
+    @include table-buttons(#3071a9);
+}

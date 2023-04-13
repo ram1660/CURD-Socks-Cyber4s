@@ -1,0 +1,13 @@
+@use 'windowUI';
+.option-container {
+    display: flex;
+    flex-direction: row;
+}
+
+label {
+    margin-left: 10px;
+}
+
+.apply-button {
+    margin-left: 20px;
+}
